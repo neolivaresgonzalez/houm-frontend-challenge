@@ -7,6 +7,8 @@ import theme from '../styles/theme';
 import '../styles/globals.css'
 import createEmotionCache from '../lib/createEmotionCache';
 import { AppProps } from 'next/app';
+import Navbar from '../components/Navbar';
+import Typography from '@mui/material/Typography'
 
 const clientSideEmotionCache = createEmotionCache();
 
@@ -24,6 +26,7 @@ const MyApp = (props: MyAppProps) => {
     </Head>
     <ThemeProvider theme={theme}>
       {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
+      <Navbar/>
       <CssBaseline />
       <Component {...pageProps} />
     </ThemeProvider>
