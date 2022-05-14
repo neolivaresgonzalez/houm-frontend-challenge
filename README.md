@@ -1,2 +1,2 @@
 # houm-frontend-challenge
-React web application consuming Marvel API to show frontend knowledge
+React web application consuming Pokemon Public API to show frontend knowledge
