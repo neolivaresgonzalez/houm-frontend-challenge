@@ -4,7 +4,7 @@ export interface LinkItem{
 }
 
 export interface GameIndex {
-    game_index: Number,
+    game_index:  number,
     version: LinkItem
 }
 
@@ -13,7 +13,7 @@ export interface Item{
 }
 
 export interface VersionGroupDetails{
-    level_learned_at: Number,
+    level_learned_at:  number,
     move_learn_method: LinkItem,
     version_group: LinkItem
 }
@@ -32,7 +32,7 @@ export interface MovesItem{
 export interface AbilityItem{
     ability: LinkItem,
     is_hidden: Boolean,
-    slot: Number
+    slot:  number
 }
 
 export interface Sprites{
@@ -211,11 +211,17 @@ export interface Sprites{
     }
 }
 
+export interface Type{
+  slot:  number,
+  type: LinkItem
+}
+
 export interface Pokemon{
-    id: Number,
+    id:  number,
     name: string,
     base_experience: Array<LinkItem>,
-    height: Number,
+    height:  number,
+    weight:  number,
     forms: Array<LinkItem>
     game_indices: Array<GameIndex>,
     held_items: Array<Item>,
@@ -223,5 +229,12 @@ export interface Pokemon{
     location_area_encounters: string,
     moves: Array<MovesItem>,
     abilities: Array<AbilityItem>,
-    sprites: Sprites
+    sprites: Sprites,
+    types: Array<Type>
+}
+
+export class Factory {
+  create<T>(type: (new () => T)): T {
+      return new type();
+  }
 }

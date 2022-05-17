@@ -9,11 +9,12 @@ import { Pokemon } from '../../constants/interfaces';
 
 const Index: React.FC =() => {
     const [selectedPokemon, setSelectedPokemon] = useState<string>("bulbasaur");
+    const [searchValue, setSearchValue] = useState<string>("")
 
     const handleSelectedPokemon = (poke) =>{
         console.log("Se ha seleccionado un Pokemon", poke.name);
-        // setSelectedPokemon(name);
     }
+
     return (
         <Container maxWidth="xl">
             <SearchBar/>
@@ -21,7 +22,7 @@ const Index: React.FC =() => {
                 container
                 spacing={2}
             >
-                <PokemonInfiniteScroll selectPokemon={handleSelectedPokemon} />
+                <PokemonInfiniteScroll selectPokemon={handleSelectedPokemon} limit={10} />
                 {/* <PokemonDisplay name={selectedPokemon}/> */}
             </Grid>
         </Container>

@@ -1,4 +1,4 @@
-import { Grid, Card, Typography, CardMedia } from '@mui/material'
+import { Grid, Card, Typography, CardMedia, CardContent } from '@mui/material'
 import Image from 'next/image'
 import Link from 'next/link'
 import styles from '../styles/Home.module.css'
@@ -16,16 +16,31 @@ export default function Home() {
         </Typography>
 
         <Grid container spacing={2}>
-          <Grid item xs={12} sm={6} lg={4}>
-            <Card>
-              <Link href="/pokedex">
-                <a>
-                  <Typography variant="body1" color="initial">
-                  Pokedex
-                  </Typography>
-                </a>
-              </Link>
-            </Card>
+          <Grid item xs={12} md={4} lg={4}>
+            <Link href="/pokedex">
+              <a>
+                <Card>
+                  <CardContent>
+                    <Typography variant="h2" color="initial">
+                      Pokedex
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </a>
+            </Link>
+          </Grid>
+          <Grid item xs={12} md={4} lg={4}>
+            <Link href="/about">
+              <a>
+                <Card>
+                  <CardContent>
+                    <Typography variant="h2" color="initial">
+                      About me
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </a>
+            </Link>
           </Grid>
         </Grid>
       </main>

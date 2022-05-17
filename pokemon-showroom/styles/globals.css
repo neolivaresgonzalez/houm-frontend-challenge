@@ -26,7 +26,13 @@ a {
   background-color: "#F5F5F5";
 }
 
-.type-tag{
+.ability-badge{
   border-radius: 2rem;
+  background-color: #f5f5f5;
+}
+
+.card-key-value-field{
+  display: flex;
+  justify-content: space-between;
 }
 

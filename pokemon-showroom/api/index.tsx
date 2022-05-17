@@ -1,12 +1,12 @@
 import { AxiosResponse } from "axios";
 import AxiosPokemonClient from "./pokemon/axiosPokemonClient";
 
-export const getPokemonById= (id: Number) : Promise<AxiosResponse> => {
+export const getPokemonById= (id: number) : Promise<AxiosResponse> => {
     return AxiosPokemonClient.get("/pokemon/"+ id);
 }
 
-export const getPokemon= (limit: Number) => {
-    return AxiosPokemonClient.get("/pokemon?limit=" + limit);
+export const getPokemon= (limit: number, offset: number) => {
+    return AxiosPokemonClient.get(`/pokemon?limit=${limit}&offset=${offset}`);
 }
 
 export const getPokemonByName= (name: string) => {
