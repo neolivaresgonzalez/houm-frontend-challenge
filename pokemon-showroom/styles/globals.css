@@ -14,3 +14,19 @@ a {
 * {
   box-sizing: border-box;
 }
+
+#infinite-scroll-root {
+  overflow-y: scroll;
+  height: 100vh;
+  overflow: auto;
+}
+
+
+.search-input{
+  background-color: "#F5F5F5";
+}
+
+.type-tag{
+  border-radius: 2rem;
+}
+

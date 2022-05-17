@@ -12,6 +12,40 @@ const theme = createTheme({
         error:{
             main: red.A400
         }
+    },
+    components:{
+        MuiButton:{
+            styleOverrides: {
+                root: {
+                    fontSize: '1rem',
+                    borderRadius: '30px'
+                  }
+            }
+        },
+        MuiTextField:{
+            styleOverrides: {
+                root: {
+                    borderRadius: '2rem',
+                    width: '100%',
+                    fontSize: '1rem',
+                    backgroundColor: '#F5F5F5',
+                    
+                }
+            }
+        },
+        MuiFilledInput:{
+            defaultProps:{
+                disableUnderline: true
+            },
+            styleOverrides: {
+                root:{
+                    backgroundColor: "transparent",
+                    "& :focus":{
+                        borderColor: orange
+                    }
+                }
+            }
+        },
     }
 })
 
