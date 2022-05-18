@@ -30,7 +30,7 @@ export default function Home() {
               <a>
                 <Card>
                   <CardMedia>
-                    <Image
+                    <img
                       src="/images/pokedex-media.jpg"
                       alt="pokedex"
                       style={{
@@ -57,7 +57,7 @@ export default function Home() {
               <a>
                 <Card>
                   <CardMedia>
-                    <Image
+                    <img
                       src="/images/me-5.jpeg"
                       alt="pokedex"
                       style={{

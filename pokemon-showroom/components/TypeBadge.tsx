@@ -42,7 +42,7 @@ const TypeBadge = (props: TypeBadgeProps) => {
             onMouseEnter={handlePopoverOpen}
             onMouseLeave={handlePopoverClose}
           >
-            <Image
+            <img
               src={`https://veekun.com/dex/media/types/en/${props.type.name}.png?w=30&h=30&fit=crop&auto=format`}
               alt={props.type.name}
               loading="lazy"

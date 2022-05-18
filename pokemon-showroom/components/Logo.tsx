@@ -27,7 +27,7 @@ const Logo = (props: LogoProps) => {
                 top: "0",
                 left: "0",
             }}>
-                <Image
+                <img
                     src="/images/me-4.jpeg"
                     alt="logo"
                     style={{
@@ -49,7 +49,7 @@ const Logo = (props: LogoProps) => {
                     height: "120px",
                     width: "120px"
                 }}>
-                    <Image
+                    <img
                         src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/home/7.png"
                         alt="logo"
                         style={{
