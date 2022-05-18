@@ -20,7 +20,7 @@ export default function Home() {
             </Typography>
           </Grid>
           <Grid item xs={12} md={6} lg={2}>
-            <Logo size={200} withPokemon></Logo>
+            {/* <Logo size={200} withPokemon></Logo> */}
           </Grid>
         </Grid>
 
@@ -52,7 +52,7 @@ export default function Home() {
               </a>
             </Link>
           </Grid>
-          <Grid item xs={12} md={4} lg={4}>
+          {/* <Grid item xs={12} md={4} lg={4}>
             <Link href="/about">
               <a>
                 <Card>
@@ -78,7 +78,7 @@ export default function Home() {
                 </Card>
               </a>
             </Link>
-          </Grid>
+          </Grid> */}
         </Grid>
       </main>
     </div>

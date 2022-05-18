@@ -1,6 +1,6 @@
 //From https://github.com/mui/material-ui/blob/v5.7.0/docs/data/material/components/app-bar/ResponsiveAppBar.tsx
 import * as React from 'react';
-import { AppBar, Box, Container, Toolbar } from "@mui/material";
+import { AppBar, Box, Container, Link, Toolbar } from "@mui/material";
 import { Typography } from "@mui/material";
 import IconButton from '@mui/material/IconButton';
 import Menu from '@mui/material/Menu';
@@ -13,7 +13,7 @@ import AdbIcon from '@mui/icons-material/Adb';
 import Logo from './Logo';
 import { margin } from '@mui/system';
 
-const pages = ['Pokedex', 'Acerca'];
+const pages = ['pokedex'];
 const settings = ['Pokedex', 'Acerca'];
 
 const Navbar = () => {
@@ -51,7 +51,6 @@ const Navbar = () => {
                             fontFamily: 'monospace',
                             fontWeight: 700,
                             letterSpacing: '.3rem',
-                            color: 'inherit',
                             textDecoration: 'none',
                         }}
                     >
@@ -65,7 +64,6 @@ const Navbar = () => {
                             aria-controls="menu-appbar"
                             aria-haspopup="true"
                             onClick={handleOpenNavMenu}
-                            color="inherit"
                         >
                             <MenuIcon />
                         </IconButton>
@@ -89,7 +87,11 @@ const Navbar = () => {
                         >
                             {pages.map((page) => (
                                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                    <Typography textAlign="center">{page}</Typography>
+                                    <Link href={page}>
+                                        <a>
+                                            <Typography textAlign="center">{page.toUpperCase()}</Typography>
+                                        </a>
+                                    </Link>
                                 </MenuItem>
                             ))}
                         </Menu>
@@ -108,12 +110,10 @@ const Navbar = () => {
                             fontFamily: 'monospace',
                             fontWeight: 700,
                             letterSpacing: '.3rem',
-                            color: 'inherit',
                             textDecoration: 'none',
                             justifyContent: "center",
                             alignText: "center",
                             alignItems: "center",
-                            margin: "2px"
                         }}
                         >
                         DEMO
@@ -123,7 +123,7 @@ const Navbar = () => {
                             <Button
                                 key={page}
                                 onClick={handleCloseNavMenu}
-                                sx={{ my: 2, color: 'white', display: 'block' }}
+                                sx={{ my: 2, color: 'black', display: 'block' }}
                             >
                                 {page}
                             </Button>
