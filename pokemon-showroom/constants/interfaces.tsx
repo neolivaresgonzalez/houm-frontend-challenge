@@ -216,6 +216,17 @@ export interface Type{
   type: LinkItem
 }
 
+export interface TypeResource{
+  name: string
+}
+export interface MoveDetail{
+  accuracy: number,
+  power: number,
+  pp: number,
+  priority: number,
+  type: LinkItem
+}
+
 export interface Pokemon{
     id:  number,
     name: string,
@@ -231,10 +242,4 @@ export interface Pokemon{
     abilities: Array<AbilityItem>,
     sprites: Sprites,
     types: Array<Type>
-}
-
-export class Factory {
-  create<T>(type: (new () => T)): T {
-      return new type();
-  }
 }

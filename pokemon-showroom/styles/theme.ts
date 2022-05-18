@@ -46,6 +46,13 @@ const theme = createTheme({
                 }
             }
         },
+        MuiCard:{
+            styleOverrides:{
+                root:{
+                    border:"1px solid orange"
+                }
+            }
+        }
     }
 })
 

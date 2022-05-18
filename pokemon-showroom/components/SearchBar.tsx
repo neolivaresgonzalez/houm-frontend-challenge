@@ -1,107 +1,80 @@
-import { Grid, TextField, InputAdornment, IconButton, FilledInput, styled, TextFieldProps, OutlinedInputProps } from '@mui/material'
+import { Grid, TextField, InputAdornment, IconButton, FilledInput, styled, TextFieldProps, OutlinedInputProps, InputBaseComponentProps, OutlinedInput } from '@mui/material'
 import SearchIcon from '@mui/icons-material/Search';
-import React, { useState } from 'react'
+import React, { ChangeEvent, useState } from 'react'
+import { LinkItem } from '../constants/interfaces';
 
+interface SearchBarProps {
+    handleInput: (newValue: string) => void
+    handleSearch: () => void,
+    query: string
+}
 
-const SearchBar = () => {
-    const [pokemonToSearch, setPokemonToSearch] = useState("");
+const SearchBar = (props: SearchBarProps) => {
 
-    const handleChange = () => {
-        console.log("Cambio");
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        props.handleInput(event.target.value)
+    };
 
+    const handleKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+        if (event.key === "Enter") {
+            handleSearch()
+        }
     }
 
     const handleSearch = () => {
         console.log("Buscar");
-
+        props.handleSearch()
     }
 
-    const CssTextField = styled((props: TextFieldProps) => (
-        <TextField
-            InputProps={{
-                endAdornment: (
-                    <InputAdornment position="end">
-                        <IconButton disableRipple={true} size="large" onClick={handleSearch}>
-                        <SearchIcon></SearchIcon>
-                        </IconButton>
-                    </InputAdornment>
-                )
-            } as Partial<OutlinedInputProps>}
-            {...props}
-        />))({
-    
-            '& label.Mui-focused': {
-                color: 'green',
-            },
-            '& .MuiInput-underline:after': {
-                borderBottomColor: 'green',
-                borderRadius: '2rem'
-            },
-            '& .MuiOutlinedInput-root': {
-                '& fieldset': {
-                    borderColor: 'transparent',
-                    borderRadius: '2rem'
-                },
-                '&:hover fieldset': {
-                    borderColor: 'transparent',
-                    borderRadius: '2rem'
-                },
-                '&.Mui-focused fieldset': {
-                    borderColor: 'orange',
-                }
-            },
-        });
-    
+
 
     return (
         <Grid container spacing={2}>
             <Grid item xs={12} md={7}>
                 <div className='searchbar'>
-                    <CssTextField
-                        id="custom-css-outlined-input"
+                    <OutlinedInput
+                        id="search-input"
                         label=""
                         placeholder="Busca por nombre o id"
-                        onChange={handleChange}
-                    />
-                    {/* <FilledInput
-                        id='pokedex-search-filled-input'
-                        disableUnderline
-                        className="search-input"
-                        fullWidth
-                        placeholder="Busca por nombre o id"
-                        endAdornment={
-                            <InputAdornment position="end">
-                                <IconButton disableRipple={true} size="large" onClick={handleSearch}>
-                                <SearchIcon></SearchIcon>
-                                </IconButton>
-                            </InputAdornment>
-                        }
-                        
-                        />
-                    <TextField
-                        id="pokedex-search-text-field"
-                        label=""
-                        type="text"
-                        variant="filled"
-                        color="primary"
-                        placeholder="Busca por id o nombre"
-                        fullWidth 
                         defaultValue=""
-                        onChange={handlSearchInputChange}
-                        InputProps={{
-                            startAdornment: (
-                                <InputAdornment position="start"></InputAdornment>
-                            ),
-                            endAdornment: (
+                        fullWidth
+                        onKeyDown={handleKeyDown}
+                        onChange={handleChange}
+                        endAdornment={
+                            (
                                 <InputAdornment position="end">
                                     <IconButton disableRipple={true} size="large" onClick={handleSearch}>
-                                    <SearchIcon></SearchIcon>
+                                        <SearchIcon></SearchIcon>
                                     </IconButton>
                                 </InputAdornment>
                             )
-                        }}
+                        }
 
-                    /> */}
+                        sx={
+                            {
+                                '& label.MuiOutlinedInput-focused': {
+                                    color: 'green',
+                                },
+                                '& .MuiInput-underline:after': {
+                                    borderBottomColor: 'green',
+                                    borderRadius: '2rem'
+                                },
+                                '& .MuiOutlinedInput-root': {
+                                    '& fieldset': {
+                                        borderColor: 'transparent',
+                                        borderRadius: '2rem'
+                                    },
+                                    '&:hover fieldset': {
+                                        borderColor: 'transparent',
+                                        borderRadius: '2rem'
+                                    },
+                                    '&.MuiOutlinedInput-focused fieldset': {
+                                        borderColor: 'orange',
+                                    }
+                                },
+                            }
+                        }
+                    />
                 </div>
             </Grid>
             <Grid item md={5}>

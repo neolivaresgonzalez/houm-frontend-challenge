@@ -3,7 +3,7 @@ import React, { FC, useEffect, useState } from 'react'
 import { getPokemonById, getPokemonByName } from '../api';
 import { Pokemon } from '../constants/interfaces';
 interface PokemonDisplayProps {
-    id?: Number,
+    id?: number,
     name?: string
 };
 
@@ -29,7 +29,7 @@ const PokemonDisplay : FC<PokemonDisplayProps> = (props) => {
 
     useEffect(() => {
       loadPokemonData();
-    }, [])
+    })
     
     return (
         <Grid item xs={12} md={7}>

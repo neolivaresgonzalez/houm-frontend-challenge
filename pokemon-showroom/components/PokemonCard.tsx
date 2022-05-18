@@ -1,9 +1,12 @@
-import { Container, Card, CardContent, CardMedia, Grid, ImageList, ImageListItem, Paper, Typography, Divider } from '@mui/material'
+import { Container, Card, CardContent, CardMedia, Grid, ImageList, MenuItem, Paper, Typography, Divider, FormControl, InputLabel } from '@mui/material'
+import Select, { SelectChangeEvent } from '@mui/material/Select';
 import React, { useEffect, useState } from 'react'
 import { getPokemonByName } from '../api'
-import { Factory, LinkItem, Pokemon } from '../constants/interfaces'
+import { LinkItem, Pokemon } from '../constants/interfaces'
 import { decimalPoint, toCapitalName } from '../utils'
 import AbilityBadge from './AbilityBadge'
+import MoveBadge from './MoveBadge'
+import MoveDetails from './MoveDetails';
 import TypeBadge from './TypeBadge'
 
 interface PokemonCardProps {
@@ -13,6 +16,11 @@ interface PokemonCardProps {
 
 const PokemonCard = (props: PokemonCardProps) => {
     const [pokemonData, setPokemonData] = useState<Pokemon>();
+    const [move, setMove] = useState<string>("")
+
+    const handleChangeSelect = (event: SelectChangeEvent) => {
+        setMove(event.target.value as string);
+    };
 
     const loadPokemonData = () => {
         getPokemonByName(props.pokemon.name).then(({ data }) => {
@@ -22,7 +30,7 @@ const PokemonCard = (props: PokemonCardProps) => {
 
     useEffect(() => {
         loadPokemonData();
-    }, []);
+    });
     return (
         <Card>
             <CardMedia
@@ -44,7 +52,7 @@ const PokemonCard = (props: PokemonCardProps) => {
                             {pokemonData ? pokemonData.types.map((t, i) => {
                                 return (
                                     <Grid item key={i}>
-                                        <TypeBadge typeName={t.type.name} />
+                                        <TypeBadge type={t.type} />
                                     </Grid>
                                 )
                             }) : ""}
@@ -95,6 +103,34 @@ const PokemonCard = (props: PokemonCardProps) => {
                                     </Grid>
                                 )
                             }) : ""}
+                        </Grid>
+                    </Grid>
+                </Grid>
+                <Divider variant="fullWidth" sx={{ marginTop: "1rem", marginBottom: "1rem" }} />
+                <Grid container spacing={1}>
+                    <Grid item xs={12}>
+                        <FormControl fullWidth>
+                            <InputLabel id="demo-simple-select-label">Moves</InputLabel>
+                            <Select
+                                labelId="demo-simple-select-label"
+                                id="demo-simple-select"
+                                value={move}
+                                label="Moves"
+                                onChange={handleChangeSelect}
+                            >
+                                {pokemonData ? pokemonData.moves.map((m, i) => {
+                                    return (
+                                        <MenuItem key={i} value={m.move.name}>
+                                            <Typography component="p" color="initial" textAlign="center">
+                                                {m.move.name}
+                                            </Typography>
+                                        </MenuItem>
+                                    )
+                                }) : ""}
+                            </Select>
+                        </FormControl>
+                        <Grid container spacing={1} >
+                            <MoveDetails moveName={move} />
                         </Grid>
                     </Grid>
                 </Grid>

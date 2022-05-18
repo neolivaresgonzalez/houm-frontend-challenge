@@ -7,7 +7,7 @@ interface AbilityBadgeProps {
 
 const AbilityBadge = (props: AbilityBadgeProps) => {
     return (
-        <div className="ability-badge">
+        <div className="badge">
             <Typography component="p" color="initial" textAlign="center">
                 {props.abilityName}
             </Typography>

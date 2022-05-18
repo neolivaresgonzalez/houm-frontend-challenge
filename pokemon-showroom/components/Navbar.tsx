@@ -10,9 +10,11 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
+import Logo from './Logo';
+import { margin } from '@mui/system';
 
-const pages = ['Pokedex', 'About me'];
-const settings = ['Pokedex', 'About me', 'Logout'];
+const pages = ['Pokedex', 'Acerca'];
+const settings = ['Pokedex', 'Acerca'];
 
 const Navbar = () => {
     const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
@@ -53,7 +55,7 @@ const Navbar = () => {
                             textDecoration: 'none',
                         }}
                     >
-                        LOGO
+                        <Logo size={50}/>
                     </Typography>
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -92,7 +94,8 @@ const Navbar = () => {
                             ))}
                         </Menu>
                     </Box>
-                    <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+                    {/* <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} /> */}
+                    {/* <Logo size={50}/> */}
                     <Typography
                         variant="h5"
                         noWrap
@@ -107,9 +110,13 @@ const Navbar = () => {
                             letterSpacing: '.3rem',
                             color: 'inherit',
                             textDecoration: 'none',
+                            justifyContent: "center",
+                            alignText: "center",
+                            alignItems: "center",
+                            margin: "2px"
                         }}
-                    >
-                        LOGO
+                        >
+                        DEMO
                     </Typography>
                     <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                         {pages.map((page) => (
@@ -123,10 +130,10 @@ const Navbar = () => {
                         ))}
                     </Box>
 
-                    <Box sx={{ flexGrow: 0 }}>
+                    {/* <Box sx={{ flexGrow: 0 }}>
                         <Tooltip title="Open settings">
                             <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                                <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
+                                <Avatar alt="Remy Sharp" src="/static/images/me-4.jpeg" />
                             </IconButton>
                         </Tooltip>
                         <Menu
@@ -151,7 +158,7 @@ const Navbar = () => {
                                 </MenuItem>
                             ))}
                         </Menu>
-                    </Box>
+                    </Box> */}
                 </Toolbar>
             </Container>
         </AppBar>
